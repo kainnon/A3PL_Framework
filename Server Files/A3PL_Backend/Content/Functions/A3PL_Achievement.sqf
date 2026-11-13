@@ -20,6 +20,9 @@
 	if (([_achievement] call PO_Achievement_Has)) exitWith {};
 
 	_achievementData = _cfgAchievement get _achievement;
+
+	if (isNil "_achievementData" || {_achievementData isEqualTo []}) exitWith {};
+
     _displayname = _achievementData#0;
     _description = _achievementData#1;
     _xp = _achievementData#2;
