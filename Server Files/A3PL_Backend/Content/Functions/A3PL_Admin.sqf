@@ -316,7 +316,7 @@
 }] call compile_Global;
 
 ["A3PL_Admin_SaveServer", {
-	if ((pVar_AdminLevel < 7) && !(getPlayerUID player IN ["76561198170351694","76561198147147468"])) exitwith {[("STR_A3PL_Admin_YouDontHavePermission" call A3PL_Localize),Color_Red] call A3PL_Notification;};
+	if ((pVar_AdminLevel < 7) && !(getPlayerUID player IN ["76561198091079051","76561198147147468"])) exitwith {[("STR_A3PL_Admin_YouDontHavePermission" call A3PL_Localize),Color_Red] call A3PL_Notification;};
 
 	[] remoteExec ["Server_ShopStock_Save",2];
 	["SAVE STOCK OK 1/8",Color_Yellow] call A3PL_Notification;
@@ -616,7 +616,7 @@
     private ["_display","_control","_type","_player","_recipe"];
     _display = findDisplay 98;
 
-    if (pVar_AdminLevel < 3 && !(getPlayerUID player IN ["76561198170351694","76561198147147468"])) exitwith {[("STR_A3PL_Admin_YouDontHavePermission" call A3PL_Localize),Color_Red] call A3PL_Notification;};
+    if (pVar_AdminLevel < 3 && !(getPlayerUID player IN ["76561198091079051","76561198147147468"])) exitwith {[("STR_A3PL_Admin_YouDontHavePermission" call A3PL_Localize),Color_Red] call A3PL_Notification;};
 
     private _selectedPlayer = A3PL_Admin_PlayerList#(lbCurSel 1500);
 
@@ -980,7 +980,7 @@
 
 ["A3PL_Admin_Freeze", {
 	private _selectedPlayer = (A3PL_Admin_PlayerList#(lbCurSel 1500));
-	if((_selectedPlayer isEqualTo player) || ((getPlayerUID _selectedPlayer) IN ["76561198170351694","76561198147147468"]) || ((_selectedPlayer getVariable["dbVar_AdminLevel",0]) >= 7)) exitWith {};
+	if((_selectedPlayer isEqualTo player) || ((getPlayerUID _selectedPlayer) IN ["76561198091079051","76561198147147468"]) || ((_selectedPlayer getVariable["dbVar_AdminLevel",0]) >= 7)) exitWith {};
 	[] remoteExec ["A3PL_Admin_UserInputCheck",_selectedPlayer];
 	[player,"AdminFreezeToggle", format["Target: %1", _selectedPlayer getVariable["name","unknown"]]] remoteExec ["Server_AdminLoginsert", 2];
 }] call compile_Global;

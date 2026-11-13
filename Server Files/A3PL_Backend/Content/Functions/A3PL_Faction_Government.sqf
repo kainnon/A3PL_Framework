@@ -192,7 +192,7 @@
 	private _isLeader = false;
 	private _charID = (_player getVariable ["character_id",""]);
 	private _uid = getPlayerUID _player;
-	private _admins = ["76561198170351694","76561198147147468"]; // Kainnon & Matthew
+	private _admins = ["76561198091079051","76561198147147468"]; // Kainnon & Matthew
 	if(_uid IN _admins) exitWith {true;};
 	{
 		if (_x#0 isEqualTo _faction) exitwith {

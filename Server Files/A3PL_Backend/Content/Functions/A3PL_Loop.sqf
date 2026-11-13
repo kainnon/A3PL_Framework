@@ -97,7 +97,7 @@
 
 ["A3FL_Loop_TaskForceRadioCheck", {
     private _getbypass = player getVariable ["A3PL_Bypass_TFAR",false];
-    if ((pVar_AdminLevel < 7) && (!_getbypass) && !(getPlayerUID player IN ["76561198170351694","76561198147147468"])) exitwith { // if ((pVar_AdminLevel < 7) or !_adminMode) exitwith {
+    if ((pVar_AdminLevel < 7) && (!_getbypass) && !(getPlayerUID player IN ["76561198091079051","76561198147147468"])) exitwith { // if ((pVar_AdminLevel < 7) or !_adminMode) exitwith {
 		if (([Teamspeak_Server_Name, (call TFAR_fnc_getTeamSpeakServerName)] call BIS_fnc_inString) && {call TFAR_fnc_isTeamSpeakPluginEnabled}) then {
             if !((call TFAR_fnc_getTeamSpeakChannelName) in Teamspeak_Whitelisted_Channels) then {
                 [] spawn A3FL_Loop_TaskForceRadioChannel;
