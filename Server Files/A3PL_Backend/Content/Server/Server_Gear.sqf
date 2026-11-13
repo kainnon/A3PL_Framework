@@ -16,6 +16,12 @@
 	// Check if the user is registred on the website, and if he completed the questionnaire
 	private _query = format ["SELECT discord_id,country_code,role_id FROM users WHERE steam_id = '%1'", _uid];
     private _return = [_query, 2, false, "Panel"] call Server_Database_Async;
+
+	if (count _return isEqualTo 0) exitWith {
+		[("Server_Gear_NotConnectedToWebsite" call A3PL_Localize), Color_Red] remoteExec ["A3PL_Notification", _unit];
+		//_exit;
+	};
+
 	private _discordId = _return#0;
 	private _countryCode = _return#1;
 	private _roleId = _return#2;
